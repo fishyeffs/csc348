@@ -14,14 +14,14 @@ class CreateThreadsTable extends Migration
     public function up()
     {
         Schema::create('threads', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string("title");
             $table->text('content');
             $table->string("author");
             $table->integer("comments"); //number of comments on thread
             $table->timestamps();
 
-            $table->bigInteger('author_id')->unsigned();
+            $table->unsignedBigInteger('author_id')->unsigned();
             $table->foreign('author_id')->references('id')->on('users')
                 ->onDelete('cascade')->onUpdate('cascade');
         });

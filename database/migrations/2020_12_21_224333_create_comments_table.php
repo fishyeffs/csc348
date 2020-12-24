@@ -17,14 +17,14 @@ class CreateCommentsTable extends Migration
             $table->id();
             $table->text('content');
             $table->string('author');
-            $table->bigInteger('author_id');
-            $table->bigInteger('thread_id');
+            $table->unsignedBigInteger('author_id');
+            $table->unsignedBigInteger('thread_id');
             $table->timestamps();
 
-            $table->foreign('thread_id')->references('id')->on('threads')
+            $table->foreign('author_id')->references('id')->on('users')
                 ->onDelete('cascade');
 
-            $table->foreign('author_id')->references('id')->on('users')
+            $table->foreign('thread_id')->references('id')->on('threads')
                 ->onDelete('cascade');
         });
     }
