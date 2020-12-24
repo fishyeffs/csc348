@@ -24,13 +24,13 @@ class CommentFactory extends Factory
         return [
             'content'=>$this->faker->paragraph,
             'author'=>function () {
-                return factory(App\User::class)->create()->name;
+                return \App\Models\User::factory()->create()->name;
             },
             'author_id'=>function () {
-                return factory(App\User::class)->create()->id;
+                return \App\Models\User::factory()->create()->id;
             },
             'thread_id'=>function () {
-                return factory(App\Thread::class)->create()->id;
+                return \App\Models\Thread::factory()->create()->id;
             },
         ];
     }

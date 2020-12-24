@@ -25,11 +25,11 @@ class ThreadFactory extends Factory
             'title'=>$this->faker->sentence,
             'content'=>$this->faker->paragraph,
             'author'=>function () {
-                return factory(App\User::class)->create()->name;
+                return \App\Models\User::factory()->create()->name;
             },
             'comments'=>$this->faker->randomDigitNotNull,
             'author_id'=>function () {
-                return factory(App\User::class)->create()->id;
+                return \App\Models\User::factory()->create()->id;
             },
         ];
     }
