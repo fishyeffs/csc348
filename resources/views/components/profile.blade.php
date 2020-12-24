@@ -23,7 +23,7 @@
                         <a href="{{ url('/home') }}"><p class="w3-wide heading-text-1">home</p></a>
                     </li>
                     <li class="horizontal a-padding">
-                        <a href="#"><p class="w3-wide heading-text-1">profile</p></a>
+                        <a href="{{ url('/profile') }}"><p class="w3-wide heading-text-1">profile</p></a>
                     </li>
                     <li class="horizontal a-padding">
                         <a href="#"><p class="w3-wide heading-text-1">about</p></a>
