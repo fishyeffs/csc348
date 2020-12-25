@@ -9,6 +9,6 @@ use Illuminate\Http\Request;
 class CommentController extends Controller
 {
     public function index() {
-        return Comment::all();
+        return CommentResource::collection(Comment::all());
     }
 }

@@ -9,6 +9,6 @@ use Illuminate\Http\Request;
 class ThreadController extends Controller
 {
     public function index() {
-        return Thread::all();
+        return ThreadResource::collection(Thread::all());
     }
 }
