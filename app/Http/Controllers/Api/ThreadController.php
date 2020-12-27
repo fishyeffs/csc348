@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 class ThreadController extends Controller
 {
     public function index() {
-        return ThreadResource::collection(Thread::all());
+        $threads=Thread::orderBy('id', 'desc')->paginate(5);
+        return ThreadResource::collection($threads);
     }
 }

@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 class CommentController extends Controller
 {
     public function index() {
+        $comments=Comment::orderBy('id', 'desc')->paginate(5);
         return CommentResource::collection(Comment::all());
     }
 }
