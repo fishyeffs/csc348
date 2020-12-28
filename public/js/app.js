@@ -1947,6 +1947,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1970,13 +1979,28 @@ __webpack_require__.r(__webpack_exports__);
     fetchThreads: function fetchThreads(pgUrl) {
       var _this = this;
 
-      pgUrl = pgUrl || 'api/thread';
-      fetch(pgUrl).then(function (res) {
-        return res.json();
-      }).then(function (res) {
-        console.log(res.data);
-        _this.threads = res.data;
+      var fakeThis = this;
+      pgUrl = pgUrl || '/api/thread';
+      fetch(pgUrl).then(function (response) {
+        return response.json();
+      }).then(function (response) {
+        console.log(response.data);
+        _this.threads = response.data;
+        console.log(response.meta);
+        console.log(response.links.next);
+        fakeThis.makePagination(response.links, response.meta);
+      })["catch"](function (err) {
+        return console.log(err);
       });
+    },
+    makePagination: function makePagination(links, meta) {
+      var pagination = {
+        currentPage: meta.current_page,
+        last: meta.last_page,
+        next: links.next,
+        prev: links.prev
+      };
+      this.pagination = pagination;
     }
   }
 });
@@ -1995,7 +2019,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.card[data-v-4ba1e08e] {\n    max-width: 50%;\n    margin: 0 auto;\n    float: none;\n}\n.thread-container[data-v-4ba1e08e] {\n    padding-top: 10px;\n    padding-left: 20px;\n    padding-right: 20px;\n    background: #EEEEFF;\n}\n", ""]);
+exports.push([module.i, "\n.pagination[data-v-4ba1e08e] {\n    margin: 0 auto;\n    float: none;\n}\n.card[data-v-4ba1e08e] {\n    max-width: 50%;\n    margin: 0 auto;\n    float: none;\n}\n.thread-container[data-v-4ba1e08e] {\n    padding-top: 10px;\n    padding-left: 20px;\n    padding-right: 20px;\n    background: #EEEEFF;\n}\n.thread-content[data-v-4ba1e08e] {\n    margin: 0 45%;\n    float: none;\n    display: inline-block;\n}\n", ""]);
 
 // exports
 
@@ -20278,9 +20302,58 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "thread-content" },
     [
-      _c("h2", {}, [_vm._v("Threads")]),
+      _c("div", { staticClass: "thread-content" }, [
+        _c("h2", [_vm._v("Threads")]),
+        _vm._v(" "),
+        _c("ul", { staticClass: "pagination" }, [
+          _c(
+            "li",
+            {
+              staticClass: "page-item",
+              class: [{ disabled: !_vm.pagination.prev }]
+            },
+            [
+              _c(
+                "a",
+                {
+                  staticClass: "page-link",
+                  attrs: { href: "#" },
+                  on: {
+                    click: function($event) {
+                      return _vm.fetchThreads(_vm.pagination.prev)
+                    }
+                  }
+                },
+                [_vm._v("Previous")]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              staticClass: "page-item",
+              class: [{ disabled: !_vm.pagination.next }]
+            },
+            [
+              _c(
+                "a",
+                {
+                  staticClass: "page-link",
+                  attrs: { href: "#" },
+                  on: {
+                    click: function($event) {
+                      return _vm.fetchThreads(_vm.pagination.next)
+                    }
+                  }
+                },
+                [_vm._v("Next")]
+              )
+            ]
+          )
+        ])
+      ]),
       _vm._v(" "),
       _vm._l(_vm.threads, function(thread) {
         return _c(
