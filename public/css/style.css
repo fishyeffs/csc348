@@ -29,22 +29,6 @@ body {
     font-size:xx-large;
 }
 
-.nav-header-text {
-    margin-left: 2%;
-    padding-right: 50%;
-}
-
-.header-container::after {
-    content: '';
-    display: table;
-    clear: both;
-}
-
-.nav-a {
-    float: right;
-    margin-right: 2%;
-}
-
 .horizontal {
     text-transform: uppercase;
 }
@@ -56,6 +40,8 @@ body {
     margin-left: 20px;
 }
 
+
+/* nav bar styling */
 nav a:hover {
     color: #EEEEFF;
 }
@@ -80,4 +66,20 @@ nav a::before {
 nav a:hover::before {
     width: 95%;
 
+}
+
+.nav-header-text {
+    margin-left: 2%;
+    padding-right: 50%;
+}
+
+.header-container::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.nav-a {
+    float: right;
+    margin-right: 2%;
 }
