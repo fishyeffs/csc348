@@ -13,4 +13,9 @@ class ThreadController extends Controller
         $threads=Thread::orderBy('id', 'desc')->paginate(7);
         return ThreadResource::collection($threads);
     }
+
+    public function displayThread($id) {
+        $thread=Thread::find($id);
+        return $thread;
+    }
 }

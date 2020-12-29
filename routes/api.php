@@ -22,4 +22,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('thread', [ThreadController::class, 'index']);
 
+Route::get('thread/{id}', [ThreadController::class, 'displayThread']);
+
 Route::get('comment', [CommentController::class, 'index']);
