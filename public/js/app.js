@@ -1956,6 +1956,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1968,7 +1971,7 @@ __webpack_require__.r(__webpack_exports__);
         comments: '',
         author_id: ''
       },
-      pagination: {},
+      pag: {},
       edit: false
     };
   },
@@ -1988,19 +1991,19 @@ __webpack_require__.r(__webpack_exports__);
         _this.threads = response.data;
         console.log(response.meta);
         console.log(response.links.next);
-        fakeThis.makePagination(response.links, response.meta);
+        fakeThis.makePag(response.links, response.meta);
       })["catch"](function (err) {
         return console.log(err);
       });
     },
-    makePagination: function makePagination(links, meta) {
-      var pagination = {
+    makePag: function makePag(links, meta) {
+      var pag = {
         currentPage: meta.current_page,
         last: meta.last_page,
         next: links.next,
         prev: links.prev
       };
-      this.pagination = pagination;
+      this.pag = pag;
     }
   }
 });
@@ -2019,7 +2022,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.pagination[data-v-4ba1e08e] {\n    margin: 0 auto;\n    float: none;\n}\n.card[data-v-4ba1e08e] {\n    max-width: 50%;\n    margin: 0 auto;\n    float: none;\n}\n.thread-container[data-v-4ba1e08e] {\n    padding-top: 10px;\n    padding-left: 20px;\n    padding-right: 20px;\n    background: #EEEEFF;\n}\n.thread-content[data-v-4ba1e08e] {\n    margin: 0 45%;\n    float: none;\n    display: inline-block;\n}\n", ""]);
+exports.push([module.i, "\n.thread-txt[data-v-4ba1e08e] {\n    color: #181D20;\n    text-decoration: none;\n}\n.custom-txt[data-v-4ba1e08e] {\n    font-weight: 600;\n    text-transform: uppercase;\n    color: #8E6C88;\n}\n.pag[data-v-4ba1e08e] {\n    margin: 0 auto;\n    float: none;\n}\n.card[data-v-4ba1e08e] {\n    max-width: 50%;\n    margin: 0 auto;\n    float: none;\n}\n.thread-container[data-v-4ba1e08e] {\n    padding-top: 10px;\n    padding-left: 20px;\n    padding-right: 20px;\n    background: #EEEEFF;\n}\n.thread-content[data-v-4ba1e08e] {\n    margin: 0 42.5%;\n    float: none;\n    display: block;\n}\n", ""]);
 
 // exports
 
@@ -20304,47 +20307,39 @@ var render = function() {
     "div",
     [
       _c("div", { staticClass: "thread-content" }, [
-        _c("h2", [_vm._v("Threads")]),
-        _vm._v(" "),
         _c("ul", { staticClass: "pagination" }, [
           _c(
             "li",
-            {
-              staticClass: "page-item",
-              class: [{ disabled: !_vm.pagination.prev }]
-            },
+            { staticClass: "page-item", class: [{ disabled: !_vm.pag.prev }] },
             [
               _c(
                 "a",
                 {
-                  staticClass: "page-link",
+                  staticClass: "page-link w3-wide custom-txt",
                   attrs: { href: "#" },
                   on: {
                     click: function($event) {
-                      return _vm.fetchThreads(_vm.pagination.prev)
+                      return _vm.fetchThreads(_vm.pag.prev)
                     }
                   }
                 },
-                [_vm._v("Previous")]
+                [_vm._v("Prev")]
               )
             ]
           ),
           _vm._v(" "),
           _c(
             "li",
-            {
-              staticClass: "page-item",
-              class: [{ disabled: !_vm.pagination.next }]
-            },
+            { staticClass: "page-item", class: [{ disabled: !_vm.pag.next }] },
             [
               _c(
                 "a",
                 {
-                  staticClass: "page-link",
+                  staticClass: "page-link w3-wide custom-txt",
                   attrs: { href: "#" },
                   on: {
                     click: function($event) {
-                      return _vm.fetchThreads(_vm.pagination.next)
+                      return _vm.fetchThreads(_vm.pag.next)
                     }
                   }
                 },
@@ -20360,9 +20355,19 @@ var render = function() {
           "div",
           { key: thread.id, staticClass: "card thread-container" },
           [
-            _c("h3", [_vm._v(_vm._s(thread.title))]),
+            _c("h3", { staticClass: "thread-txt" }, [
+              _vm._v(_vm._s(thread.title))
+            ]),
             _vm._v(" "),
-            _c("p", [_vm._v(_vm._s(thread.content))])
+            _c("p", { staticClass: "thread-txt" }, [
+              _vm._v(_vm._s(thread.content))
+            ]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "#" } }, [
+              _c("h5", { staticClass: "thread-txt" }, [
+                _vm._v(_vm._s(thread.comments) + " comment(s) >>")
+              ])
+            ])
           ]
         )
       })
