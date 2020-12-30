@@ -15,7 +15,7 @@
         v-bind:key="thread.id">
             <h3 class="thread-txt">{{ thread.title }}</h3>
             <p class="thread-txt">{{ thread.content }}</p>
-            <a href="#">
+            <a href="#" @click="openThread(thread.id)">
                 <h5 class="thread-txt">{{ thread.comments }} comment(s) >></h5>
             </a>
         </div>
@@ -68,6 +68,11 @@
                 }
 
                 this.pag = pag;
+            },
+            openThread(id) {
+                var dest = new URL(`thread/${id}`, window.location);
+                console.log(dest.pathname);
+                window.location = dest.href;
             }
         }
     }

@@ -36,7 +36,7 @@
         <!--end header-->
     <body>
         <div id="app">
-            <thread></thread>
+            <threads></threads>
         </div>
         <script src="{{ asset('js/app.js') }}"></script>
     </body>

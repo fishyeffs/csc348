@@ -24,3 +24,7 @@ Route::get('home', function () {
 Route::get('profile', function () {
     return view('components.profile');
 });
+
+Route::get('thread/{id}', function () {
+    return view('components.thread');
+});
