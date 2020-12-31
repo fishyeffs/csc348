@@ -28,3 +28,5 @@ Route::get('profile', function () {
 Route::get('thread/{id}', function () {
     return view('components.thread');
 });
+
+Route::get('signup', [SignUpController::class, 'index']);
