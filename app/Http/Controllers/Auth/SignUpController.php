@@ -31,6 +31,9 @@ class SignUpController extends Controller
         return redirect()->route('home');
 
         //sign in
+        auth()->attempt(
+            $request->only('email', 'password')
+        );
         //redirect
 
     }
