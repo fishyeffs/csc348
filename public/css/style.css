@@ -8,6 +8,45 @@ body {
     background : #EEEEFF;
 }
 
+.error-border {
+    border-radius: 1px;
+    border: #FF531F;
+}
+
+.error-txt {
+    color: #FF531F;
+    margin: 0 auto;
+}
+
+.card {
+    max-width: 50%;
+    padding-top: 10px;
+    margin: 0 auto;
+    float: none;
+    background: #EEEEFF;
+    border: #EEEEFF;
+}
+
+.form-styling {
+    margin: 0 auto;
+    float: none;
+    padding-top: 10px;
+}
+
+.p-3 {
+    margin-top: 1%;
+    background: #FFF;
+    border: transparent;
+}
+
+.signup {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background: #8E6C88;
+    border: none;
+    color: #EEEEFF;
+}
+
 .header-container {
     padding-top: 10px;
     display: block;
@@ -82,4 +121,10 @@ nav a:hover::before {
 .nav-a {
     float: right;
     margin-right: 2%;
+}
+
+.bg-color {
+    background: #8E6C88;
+    height: 100%;
+    width: 100%;
 }

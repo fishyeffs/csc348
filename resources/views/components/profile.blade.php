@@ -26,7 +26,7 @@
                         <a href="{{ url('/profile') }}"><p class="w3-wide heading-text-1">profile</p></a>
                     </li>
                     <li class="horizontal a-padding">
-                        <a href="#"><p class="w3-wide heading-text-1">about</p></a>
+                        <a href="{{ url('/signup') }}"><p class="w3-wide heading-text-1">log in</p></a>
                     </li>
                 </ul>
             </nav> 

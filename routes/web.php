@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\SignUpController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,14 +20,16 @@ Route::get('/', function () {
 
 Route::get('home', function () {
     return view('components.home');
-}); 
+})->name('home'); 
 
 Route::get('profile', function () {
     return view('components.profile');
-});
+})->name('profile');
 
 Route::get('thread/{id}', function () {
     return view('components.thread');
 });
 
-Route::get('signup', [SignUpController::class, 'index']);
+Route::get('signup', [SignUpController::class, 'index'])->name('signup');
+
+Route::post('signup', [SignUpController::class, 'store']);

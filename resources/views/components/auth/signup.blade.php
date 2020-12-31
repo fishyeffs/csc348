@@ -28,14 +28,34 @@
                     <a href="{{ url('/profile') }}"><p class="w3-wide heading-text-1">profile</p></a>
                 </li>
                 <li class="horizontal a-padding">
-                    <a href="#"><p class="w3-wide heading-text-1">about</p></a>
+                    <a href="{{ url('/signup') }}"><p class="w3-wide heading-text-1">log in</p></a>
                 </li>
             </ul>
         </nav> 
     </container>
         <!--end header-->
     <div class="flex justify-center">
-        <div class="card">
-        </div>
+        <form method="post" action="{{ route('signup') }}">
+            <div class="card">
+                @csrf
+                <input type="text" id="name" name="name" placeholder="Name" class="w-full border-2 rounded-lg p-3" value="{{ old('name') }}">
+                <input type="text" id="email" name="email" placeholder="Email" class="w-full border-2 rounded-lg p-3" value="{{ old('email') }}">
+                <input type="password" id="password" name="password" placeholder="Password" class="w-full border-2 rounded-lg p-3" value="">
+                <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Confirm Password" class="w-full border-2 rounded-lg p-3" value="">
+            </div>
+
+            <div class="card">
+                <button type="submit" class="btn-style rounded signup font-medium">Sign up</button>
+                @error('name')
+                    <div class="error-txt"> {{ $message }}</div>
+                @enderror
+                @error('email')
+                    <div class="error-txt"> {{ $message }}</div>
+                @enderror
+                @error('password')
+                    <div class="error-txt"> {{ $message }}</div>
+                @enderror
+            </div>
+        </form>
     </div>
 </div>
