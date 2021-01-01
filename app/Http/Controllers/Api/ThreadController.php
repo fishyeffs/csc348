@@ -18,4 +18,14 @@ class ThreadController extends Controller
         $thread=Thread::find($id);
         return $thread;
     }
+
+    public function createThread(Request $request) {
+        $this->validate($request, ['body'=>'required']);
+
+        Thread::create([
+            'body'=>$request->body
+        ]);
+    }
+
+    
 }

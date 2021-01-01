@@ -19,7 +19,7 @@
                     title: '',
                     content: '',
                     author: '',
-                    comments: '',
+                    noOfComments: '',
                     author_id: ''
                 },
                 edit: false            
