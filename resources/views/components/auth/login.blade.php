@@ -51,10 +51,28 @@
         </nav> 
     </container>
         <!--end header-->
-    <body>
-        <div id="app">
-            <threads></threads>
-        </div>
-        <script src="{{ asset('js/app.js') }}"></script>
-    </body>
+    <div class="flex justify-center">
+        <form method="post" action="{{ route('login') }}">
+            <div class="card">
+                @csrf
+                <input type="text" id="email" name="email" placeholder="Email" class="w-full border-2 rounded-lg p-3" value="{{ old('email') }}">
+                <input type="password" id="password" name="password" placeholder="Password" class="w-full border-2 rounded-lg p-3" value="">
+            </div>
+
+            <div class="card">
+                <button type="submit" class="btn-style rounded signup font-medium">Login</button>
+                @error('email')
+                    <div class="error-txt"> {{ $message }}</div>
+                @enderror
+                @error('password')
+                    <div class="error-txt"> {{ $message }}</div>
+                @enderror
+                @if (session('status'))
+                    <div class="error-txt">
+                        {{ session('status') }}
+                    </div>
+                @endif
+            </div>
+        </form>
+    </div>
 </div>

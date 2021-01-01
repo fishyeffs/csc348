@@ -19,15 +19,32 @@
         <h2 class="w3-wide heading-text-2 nav-header-text horizontal">the_forum</h2>
         <nav class="nav nav-a horizontal a-padding"> 
             <ul>
-                <li class="horizontal a-padding">
-                    <a href="{{ url('/home') }}"><p class="w3-wide heading-text-1">home</p></a>
-                </li>
-                <li class="horizontal a-padding">
-                    <a href="{{ url('/profile') }}"><p class="w3-wide heading-text-1">profile</p></a>
-                </li>
-                <li class="horizontal a-padding">
-                    <a href="{{ url('/signup') }}"><p class="w3-wide heading-text-1">log in</p></a>
-                </li>
+                @auth 
+                    <li class="horizontal a-padding">
+                        <a href="{{ route('home') }}"><p class="w3-wide heading-text-1">home</p></a>
+                    </li>
+                    <li class="horizontal a-padding">
+                        <a href="{{ route('profile') }}"><p class="w3-wide heading-text-1">profile</p></a>
+                    </li>
+                    <li class="horizontal a-padding">
+                        <a href="#"><p class="w3-wide heading-text-1">log out</p></a>
+                    </li>
+                @endauth
+
+                @guest 
+                    <li class="horizontal a-padding">
+                        <a href="{{ route('home') }}"><p class="w3-wide heading-text-1">home</p></a>
+                    </li>
+                    <li class="horizontal a-padding">
+                        <a href="{{ route('profile') }}"><p class="w3-wide heading-text-1">profile</p></a>
+                    </li>
+                    <li class="horizontal a-padding">
+                        <a href="{{ route('signup') }}"><p class="w3-wide heading-text-1">sign up</p></a>
+                    </li>
+                    <li class="horizontal a-padding">
+                        <a href="{{ route('login') }}"><p class="w3-wide heading-text-1">log in</p></a>
+                    </li>
+                @endguest
             </ul>
         </nav> 
     </container>

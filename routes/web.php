@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\SignUpController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomePgController;
 
 /*
@@ -29,6 +30,8 @@ Route::get('thread/{id}', function () {
     return view('components.thread');
 });
 
-Route::get('signup', [SignUpController::class, 'index'])->name('signup');
+Route::get('login', [LoginController::class, 'index'])->name('login');
+Route::post('login', [LoginController::class, 'store']);
 
+Route::get('signup', [SignUpController::class, 'index'])->name('signup');
 Route::post('signup', [SignUpController::class, 'store']);
