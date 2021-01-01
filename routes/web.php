@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\SignUpController;
+use App\Http\Controllers\HomePgController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('home', function () {
-    return view('components.home');
-})->name('home'); 
+Route::get('home', [HomePgController::class, 'index'])->name('home');
 
 Route::get('profile', function () {
     return view('components.profile');

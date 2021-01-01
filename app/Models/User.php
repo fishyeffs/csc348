@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Comment;
+use App\Models\Thread;
 
 class User extends Authenticatable
 {
@@ -42,10 +44,10 @@ class User extends Authenticatable
     ];
 
     public function comments() {
-        return $this->hasMany("App\Models\Comments");
+        return $this->hasMany(Comment::class);
     }
 
     public function threads() {
-        return $this->hasMany("App\Models\Threads");
+        return $this->hasMany(Thread::class);
     }
 }

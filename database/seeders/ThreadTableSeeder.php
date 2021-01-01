@@ -13,6 +13,6 @@ class ThreadTableSeeder extends Seeder
      */
     public function run()
     {
-        Thread::factory()->count(5)->create();
+        //Thread::factory()->count(5)->create();
     }
 }

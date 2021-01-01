@@ -4,16 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Thread;
+use App\Models\Users;
 
 class Comment extends Model
 {
     use HasFactory;
 
     public function thread() {
-        return $this->belongsTo("App\Models\Thread");
+        return $this->belongsTo(Thread::class);
     }
 
     public function user() {
-        return $this->belongsTo("App\Models\User");
+        return $this->belongsTo(User::class);
     }
 }

@@ -28,13 +28,11 @@ class SignUpController extends Controller
             'password'=>Hash::make($request->password),
         ]);
 
-        return redirect()->route('home');
-
         //sign in
         auth()->attempt(
             $request->only('email', 'password')
         );
         //redirect
-
+        return redirect()->route('home');
     }
 }
