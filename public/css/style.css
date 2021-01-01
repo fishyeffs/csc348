@@ -8,6 +8,12 @@ body {
     background : #EEEEFF;
 }
 
+.get-rid {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
 .error-border {
     border-radius: 1px;
     border: #FF531F;

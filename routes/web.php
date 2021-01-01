@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\SignUpController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogOutController;
 use App\Http\Controllers\HomePgController;
 
 /*
@@ -35,3 +36,5 @@ Route::post('login', [LoginController::class, 'store']);
 
 Route::get('signup', [SignUpController::class, 'index'])->name('signup');
 Route::post('signup', [SignUpController::class, 'store']);
+
+Route::get('logout', [LogoutController::class, 'logout'])->name('logout');

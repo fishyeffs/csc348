@@ -27,7 +27,7 @@
                         <a href="{{ route('profile') }}"><p class="w3-wide heading-text-1">profile</p></a>
                     </li>
                     <li class="horizontal a-padding">
-                        <a href="#"><p class="w3-wide heading-text-1">log out</p></a>
+                        <a href="{{ route('logout') }}"><p class="w3-wide heading-text-1">log out</p></a>
                     </li>
                 @endauth
 
