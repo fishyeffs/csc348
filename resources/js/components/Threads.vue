@@ -16,7 +16,7 @@
             <h3 class="thread-txt">{{ thread.title }}</h3>
             <p class="thread-txt">{{ thread.content }}</p>
             <a href="#" @click="openThread(thread.id)">
-                <h5 class="thread-txt">{{ thread.noOfComments }} comment(s) >></h5>
+                <h5 class="thread-txt">{{ thread.comments }} comment(s) >></h5>
             </a>
         </div>
     </div>
@@ -32,7 +32,7 @@
                     title: '',
                     content: '',
                     author: '',
-                    noOfComments: '',
+                    comments: '',
                     author_id: ''
                 },
                 pag: {},

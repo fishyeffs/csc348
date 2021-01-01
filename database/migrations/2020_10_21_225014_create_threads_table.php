@@ -18,7 +18,7 @@ class CreateThreadsTable extends Migration
             $table->string("title");
             $table->text('content');
             $table->string("author");
-            $table->integer("noOfComments"); //number of comments on thread
+            $table->integer("comments"); //number of comments on thread
             $table->timestamps();
 
             $table->unsignedBigInteger('author_id')->unsigned();
