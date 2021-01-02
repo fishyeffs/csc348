@@ -21,6 +21,9 @@
                 <ul>
                 @auth 
                     <li class="horizontal a-padding">
+                        <a href="{{ route('createThreadForm') }}"><p class="w3-wide heading-text-1">create</p></a>
+                    </li>
+                    <li class="horizontal a-padding">
                         <a href="{{ route('home') }}"><p class="w3-wide heading-text-1">home</p></a>
                     </li>
                     <li class="horizontal a-padding">
