@@ -19,12 +19,24 @@ class ThreadController extends Controller
         return $thread;
     }
 
-    public function createThread(Request $request) {
-        $this->validate($request, ['body'=>'required']);
-
-        Thread::create([
-            'body'=>$request->body
+    public function store(Request $request) {
+        $this->validate($request, [
+            'title'=>'required|max:64',
+            'content'=>'required|max:512'
         ]);
+
+        auth()->user()->threads()->create([
+            'author'=>auth()->user()->name,
+            'title'=>$request->title,
+            'content'=>$request->content,
+            'comments'=>0
+        ]);
+
+        return redirect()->route('home');
+    }
+
+    public function createThreadForm() {
+        return view('components.create-thread');
     }
 
     

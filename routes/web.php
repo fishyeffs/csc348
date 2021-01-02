@@ -45,3 +45,7 @@ Route::get('logout', [LogoutController::class, 'logout'])->name('logout');
 Route::get('create-thread', [ThreadController::class, 'createThreadForm'])
     ->name('createThreadForm')
     ->middleware('auth'); //stops non-users from posting
+
+Route::post('create', [ThreadController::class, 'store'])
+    ->name('create')
+    ->middleware('auth');
