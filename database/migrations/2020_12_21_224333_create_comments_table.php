@@ -17,11 +17,11 @@ class CreateCommentsTable extends Migration
             $table->id();
             $table->text('content');
             $table->string('author');
-            $table->unsignedBigInteger('author_id');
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('thread_id');
             $table->timestamps();
 
-            $table->foreign('author_id')->references('id')->on('users')
+            $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade');
 
             $table->foreign('thread_id')->references('id')->on('threads')

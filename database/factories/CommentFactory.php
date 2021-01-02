@@ -26,7 +26,7 @@ class CommentFactory extends Factory
             'author'=>function () {
                 return \App\Models\User::factory()->create()->name;
             },
-            'author_id'=>function () {
+            'user_id'=>function () {
                 return \App\Models\User::factory()->create()->id;
             },
             'thread_id'=>function () {

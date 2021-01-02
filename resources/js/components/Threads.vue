@@ -33,7 +33,7 @@
                     content: '',
                     author: '',
                     comments: '',
-                    author_id: ''
+                    user_id: ''
                 },
                 pag: {},
                 edit: false            

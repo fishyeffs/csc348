@@ -21,8 +21,8 @@ class CreateThreadsTable extends Migration
             $table->integer("comments"); //number of comments on thread
             $table->timestamps();
 
-            $table->unsignedBigInteger('author_id')->unsigned();
-            $table->foreign('author_id')->references('id')->on('users')
+            $table->unsignedBigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade')->onUpdate('cascade');
         });
     }

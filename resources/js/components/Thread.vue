@@ -3,7 +3,7 @@
         <div class="card thread-container" v-bind:key="thread.id">
             <h3 class="thread-txt">{{ thread.title }}</h3>
             <p class="thread-txt">{{ thread.content }}</p>
-            <h6 class="thread-txt">{{ thread.author_id }}</h6>
+            <h6 class="thread-txt">{{ thread.user_id }}</h6>
             <!-- this should eventually query the user table using 
             a controller/api whatever -->
         </div>
@@ -20,7 +20,7 @@
                     content: '',
                     author: '',
                     noOfComments: '',
-                    author_id: ''
+                    user_id: ''
                 },
                 edit: false            
             }
