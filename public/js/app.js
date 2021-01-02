@@ -2023,7 +2023,7 @@ __webpack_require__.r(__webpack_exports__);
         title: '',
         content: '',
         author: '',
-        comments: '',
+        noOfComments: '',
         user_id: ''
       },
       pag: {},
@@ -20522,7 +20522,7 @@ var render = function() {
               },
               [
                 _c("h5", { staticClass: "thread-txt" }, [
-                  _vm._v(_vm._s(thread.comments) + " comment(s) >>")
+                  _vm._v(_vm._s(thread.noOfComments) + " comment(s) >>")
                 ])
               ]
             )

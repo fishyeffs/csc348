@@ -15,7 +15,7 @@ class Thread extends Model
         'title',
         'content',
         'author',
-        'comments',
+        'noOfComments',
         'user_id'
     ];
 

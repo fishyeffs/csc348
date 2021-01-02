@@ -29,7 +29,7 @@ class ThreadController extends Controller
             'author'=>auth()->user()->name,
             'title'=>$request->title,
             'content'=>$request->content,
-            'comments'=>0,
+            'noOfComments'=>0,
             'user_id'=>auth()->user()->id
         ]);
 
