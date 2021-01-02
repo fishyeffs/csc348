@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CommentResource;
 use App\Models\Comment;
+use App\Models\Thread;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -20,14 +21,18 @@ class CommentController extends Controller
             'content'=>'required|max:512'
         ]);
     
-        auth()->user()->comments()->create([
+        $comment = auth()->user()->comments()->create([
             'author'=>auth()->user()->name,
             'content'=>$request->content,
             'user_id'=>auth()->user()->id,
             'thread_id'=> substr(url()->previous(), 25)
         ]);
+
+        $thread = Thread::find(substr(url()->previous(), 25));
+
+        $comment->thread()->associate($thread);
         
-        auth()->user()->threads()->where('id', substr(url()->previous(), 25))->increment('comments');
+        $thread->increment('noOfComments');
         
         return redirect()->back();
         
