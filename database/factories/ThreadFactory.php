@@ -28,7 +28,7 @@ class ThreadFactory extends Factory
                 return \App\Models\User::factory()->create()->name;
             },
             'comments'=>$this->faker->randomDigitNotNull,
-            'author_id'=>function () {
+            'user_id'=>function () {
                 return \App\Models\User::factory()->create()->id;
             },
         ];

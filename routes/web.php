@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\SignUpController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogOutController;
 use App\Http\Controllers\HomePgController;
+use App\Http\Controllers\Api\ThreadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,16 +26,22 @@ Route::get('home', [HomePgController::class, 'index'])->name('home');
 
 Route::get('profile', function () {
     return view('components.profile');
-})->name('profile');
+})->name('profile')->middleware('auth');
 
 Route::get('thread/{id}', function () {
     return view('components.thread');
 });
 
-Route::get('login', [LoginController::class, 'index'])->name('login');
+Route::get('login', [LoginController::class, 'index'])
+    ->name('login')
+    ->middleware('guest');
 Route::post('login', [LoginController::class, 'store']);
 
 Route::get('signup', [SignUpController::class, 'index'])->name('signup');
 Route::post('signup', [SignUpController::class, 'store']);
 
 Route::get('logout', [LogoutController::class, 'logout'])->name('logout');
+
+Route::get('create-thread', [ThreadController::class, 'createThreadForm'])
+    ->name('createThreadForm')
+    ->middleware('auth'); //stops non-users from posting
