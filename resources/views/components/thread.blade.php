@@ -15,7 +15,7 @@
         <title>Home</title>
     </head>
     <!--header-->
-    <container class="header-container">
+    <div class="header-container">
         <h2 class="w3-wide heading-text-2 nav-header-text horizontal">the_forum</h2>
         <nav class="nav nav-a horizontal a-padding"> 
             <ul>
@@ -50,7 +50,7 @@
                 @endguest
             </ul>
         </nav> 
-    </container>
+    </div>
         <!--end header-->
     <body>
         <div id="app">

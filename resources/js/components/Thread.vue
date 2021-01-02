@@ -3,9 +3,7 @@
         <div class="card thread-container" v-bind:key="thread.id">
             <h3 class="thread-txt">{{ thread.title }}</h3>
             <p class="thread-txt">{{ thread.content }}</p>
-            <h6 class="thread-txt">{{ thread.user_id }}</h6>
-            <!-- this should eventually query the user table using 
-            a controller/api whatever -->
+            <h5 class="thread-txt inline">By {{ thread.author }}</h5>
         </div>
     </div>
 </template>

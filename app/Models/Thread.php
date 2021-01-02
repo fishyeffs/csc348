@@ -15,7 +15,8 @@ class Thread extends Model
         'title',
         'content',
         'author',
-        'comments'
+        'comments',
+        'user_id'
     ];
 
     public function comments() {

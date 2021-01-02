@@ -29,7 +29,8 @@ class ThreadController extends Controller
             'author'=>auth()->user()->name,
             'title'=>$request->title,
             'content'=>$request->content,
-            'comments'=>0
+            'comments'=>0,
+            'user_id'=>auth()->user()->id
         ]);
 
         return redirect()->route('home');
