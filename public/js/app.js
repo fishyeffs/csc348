@@ -2082,7 +2082,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.thread-txt[data-v-33dea735] {\n    color: #181D20;\n    text-decoration: none;\n}\n.custom-txt[data-v-33dea735] {\n    font-weight: 600;\n    text-transform: uppercase;\n    color: #8E6C88;\n}\n.card[data-v-33dea735] {\n    max-width: 50%;\n    margin: 0 auto;\n    float: none;\n}\n.thread-container[data-v-33dea735] {\n    padding-top: 10px;\n    padding-left: 20px;\n    padding-right: 20px;\n    background: #EEEEFF;\n}\n.thread-content[data-v-33dea735] {\n    margin: 0 42.5%;\n    float: none;\n    display: block;\n}\n", ""]);
+exports.push([module.i, "\n.thread-txt[data-v-33dea735] {\n    color: #181D20;\n    text-decoration: none;\n}\n.custom-txt[data-v-33dea735] {\n    font-weight: 600;\n    text-transform: uppercase;\n    color: #8E6C88;\n}\n.card[data-v-33dea735] {\n    max-width: 50%;\n    margin: 0 auto;\n    float: none;\n}\n.thread-container[data-v-33dea735] {\n    margin-top: 10px;\n    padding-top: 10px;\n    padding-left: 20px;\n    padding-right: 20px;\n    background: #EEEEFF;\n    border: solid;\n    border-color: #8E6C88;\n}\n.thread-content[data-v-33dea735] {\n    margin: 0 42.5%;\n    float: none;\n    display: block;\n}\n", ""]);
 
 // exports
 
@@ -2101,7 +2101,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.thread-txt[data-v-4ba1e08e] {\n    color: #181D20;\n    text-decoration: none;\n}\n.custom-txt[data-v-4ba1e08e] {\n    font-weight: 600;\n    text-transform: uppercase;\n    color: #8E6C88;\n}\n.pag[data-v-4ba1e08e] {\n    margin: 0 auto;\n    float: none;\n}\n.card[data-v-4ba1e08e] {\n    max-width: 50%;\n    margin: 0 auto;\n    float: none;\n}\n.thread-container[data-v-4ba1e08e] {\n    padding-top: 10px;\n    padding-left: 20px;\n    padding-right: 20px;\n    background: #EEEEFF;\n}\n.thread-content[data-v-4ba1e08e] {\n    margin: 0 42.5%;\n    float: none;\n    display: block;\n}\n", ""]);
+exports.push([module.i, "\n.thread-txt[data-v-4ba1e08e] {\n    color: #181D20;\n    text-decoration: none;\n}\n.custom-txt[data-v-4ba1e08e] {\n    font-weight: 600;\n    text-transform: uppercase;\n    color: #8E6C88;\n}\n.pag[data-v-4ba1e08e] {\n    margin: 0 auto;\n    float: none;\n}\n.card[data-v-4ba1e08e] {\n    max-width: 50%;\n    margin: 0 auto;\n    float: none;\n}\n.thread-container[data-v-4ba1e08e] {\n    margin-bottom: 5px;\n    padding-top: 10px;\n    padding-left: 20px;\n    padding-right: 20px;\n    background: #EEEEFF;\n    border: solid;\n    border-color: #8E6C88;\n}\n.thread-content[data-v-4ba1e08e] {\n    margin: 0 42.5%;\n    float: none;\n    display: block;\n}\n", ""]);
 
 // exports
 
@@ -20423,7 +20423,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("h5", { staticClass: "thread-txt inline" }, [
-        _vm._v("By " + _vm._s(_vm.thread.author))
+        _vm._v("Posted by " + _vm._s(_vm.thread.author))
       ])
     ])
   ])

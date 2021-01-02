@@ -3,7 +3,7 @@
         <div class="card thread-container" v-bind:key="thread.id">
             <h3 class="thread-txt">{{ thread.title }}</h3>
             <p class="thread-txt">{{ thread.content }}</p>
-            <h5 class="thread-txt inline">By {{ thread.author }}</h5>
+            <h5 class="thread-txt inline">Posted by {{ thread.author }}</h5>
         </div>
     </div>
 </template>
@@ -59,10 +59,13 @@
         float: none;
     }  
     .thread-container {
+        margin-top: 10px;
         padding-top: 10px;
         padding-left: 20px;
         padding-right: 20px;
         background: #EEEEFF;
+        border: solid;
+        border-color: #8E6C88;
     }
     .thread-content {
         margin: 0 42.5%;
