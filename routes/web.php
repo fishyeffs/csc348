@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogOutController;
 use App\Http\Controllers\HomePgController;
 use App\Http\Controllers\Api\ThreadController;
+use App\Http\Controllers\Api\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,4 +49,8 @@ Route::get('create-thread', [ThreadController::class, 'createThreadForm'])
 
 Route::post('create', [ThreadController::class, 'store'])
     ->name('create')
+    ->middleware('auth');
+
+Route::post('create-comment', [CommentController::class, 'store'])
+    ->name('store-comment')
     ->middleware('auth');

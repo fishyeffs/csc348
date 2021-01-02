@@ -57,5 +57,23 @@
             <single-thread></single-thread>
         </div>
         <script src="{{ asset('js/app.js') }}"></script>
+    
+        <div class="flex justify-center">
+            <form method="post" action="{{ route('store-comment') }}">
+                <div class="card">
+                    @csrf
+                    <h5>Comment</h5>
+                    <textarea type="text" id="content" name="content" placeholder="Write something..." 
+                        class="w-full border-2 rounded-lg p-3" value="{{ old('comment') }}"></textarea>
+                </div>
+    
+                <div class="card">
+                    <button  type="submit" class="btn-style rounded signup font-medium">Comment</button>
+                    @error('content')
+                        <div class="error-txt"> {{ $message }}</div>
+                    @enderror
+                </div>
+            </form>
+        </div>
     </body>
 </div>

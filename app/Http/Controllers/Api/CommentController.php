@@ -13,4 +13,24 @@ class CommentController extends Controller
         $comments=Comment::orderBy('id', 'desc')->paginate(10);
         return CommentResource::collection($comments);
     }
+
+    
+    public function store(Request $request) {
+        $this->validate($request, [
+            'content'=>'required|max:512'
+        ]);
+    
+        auth()->user()->comments()->create([
+            'author'=>auth()->user()->name,
+            'content'=>$request->content,
+            'user_id'=>auth()->user()->id,
+            'thread_id'=> substr(url()->previous(), 25)
+        ]);
+        
+        auth()->user()->threads()->where('id', substr(url()->previous(), 25))->increment('comments');
+        
+        return redirect()->back();
+        
+    }
+    
 }
