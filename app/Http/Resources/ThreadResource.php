@@ -20,7 +20,7 @@ class ThreadResource extends JsonResource
             'content'=>$this->content,
             'author'=>$this->author,
             'comments'=>$this->comments,
-            'user_id'=>$this->author_id,
+            'user_id'=>$this->user_id,
         ];
     }
 }
