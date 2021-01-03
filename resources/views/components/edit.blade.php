@@ -67,7 +67,7 @@
             </div>
 
             <div class="card">
-                <td>{{ auth()->user()->admin }}</td>
+                
                 @if (auth()->user()->id == \App\Models\Thread::find(substr(url()->full(), 25,1))->user_id || auth()->user()->admin == 1 )
                     <button  type="submit" class="btn-style rounded signup font-medium">Edit</button>
                 @else 
