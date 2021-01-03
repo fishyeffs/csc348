@@ -26,6 +26,7 @@ class SignUpController extends Controller
             'name'=>$request->name,
             'email'=>$request->email,
             'password'=>Hash::make($request->password),
+            'admin'=>0
         ]);
 
         //sign in
