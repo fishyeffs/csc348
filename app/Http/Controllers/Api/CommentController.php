@@ -15,7 +15,12 @@ class CommentController extends Controller
         return CommentResource::collection($comments);
     }
 
-    
+    public function get($thread_id) {
+        $comments=Comment::where('thread_id', '=', $thread_id)->orderBy('id', 'desc')->paginate(10);
+        return $comments;
+    }
+
+
     public function store(Request $request) {
         $this->validate($request, [
             'content'=>'required|max:512'

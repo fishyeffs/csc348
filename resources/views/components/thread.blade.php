@@ -55,6 +55,7 @@
     <body>
         <div id="app">
             <single-thread></single-thread>
+            <comments></comments>
         </div>
         <script src="{{ asset('js/app.js') }}"></script>
     

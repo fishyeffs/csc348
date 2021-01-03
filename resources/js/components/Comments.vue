@@ -11,29 +11,26 @@
                 </li>
             </ul>
         </div>
-        <div class="card thread-container" v-for="thread in threads"
-        v-bind:key="thread.id">
-            <h3 class="thread-txt">{{ thread.title }}</h3>
-            <p class="thread-txt">{{ thread.content }}</p>
-            <a href="#" @click="openThread(thread.id)">
-                <h5 class="thread-txt">{{ thread.noOfComments }} comment(s) >></h5>
-            </a>
+        <div class="card thread-container" v-for="comment in comments"
+        v-bind:key="comment.id">
+            <h5 class="thread-txt">{{ comment.author }}</h5>
+            <p class="thread-txt">{{ comment.content }}</p>
         </div>
     </div>
 </template>
 
 <script>
+import { log } from 'util';
     export default {
         data() {
             return {
-                threads: [],
-                thread: {
+                comments: [],
+                comment: {
                     id: '',
-                    title: '',
                     content: '',
                     author: '',
-                    noOfComments: '',
-                    user_id: ''
+                    user_id: '',
+                    thread_id: ''
                 },
                 pag: {},
                 edit: false            
@@ -41,20 +38,23 @@
         },
 
         created() {
-            this.fetchThreads();
+            this.fetchThreads(window.location.pathname.substring(8));
         },
 
         methods: {
-            fetchThreads(pgUrl) {
+            async fetchThreads(id) {
                 let fakeThis = this;
-                pgUrl = pgUrl || '/api/thread'
-                fetch(pgUrl)
+                console.log(id);
+                var pgUrl = ['/api/comment',`${id}`].join('/');
+                console.log(pgUrl);
+                await fetch(pgUrl)
                     .then(response => response.json())
-                    .then(response => { 
-                        console.log(response.data) ;
-                        this.threads = response.data;
-                        console.log(response.meta);
-                        console.log(response.links.next)
+                    .then(response => {
+                        console.log("somehow there's no response");
+                        console.log(response) ; 
+                        this.comments = response.data;
+                        //console.log(response.meta);
+                        //console.log(response.links.next)
                         fakeThis.makePag(response.links, response.meta);
                     })
                     .catch(err => console.log(err));
@@ -68,11 +68,6 @@
                 }
 
                 this.pag = pag;
-            },
-            openThread(id) {
-                var dest = new URL(`thread/${id}`, window.location);
-                console.log(dest.pathname);
-                window.location = dest.href;
             }
         }
     }

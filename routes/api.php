@@ -26,3 +26,5 @@ Route::get('thread/{id}', [ThreadController::class, 'displayThread']);
 
 Route::get('comment', [CommentController::class, 'index']);
 
+Route::get('comment/{id}', [CommentController::class, 'get']);
+
