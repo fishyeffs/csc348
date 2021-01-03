@@ -52,5 +52,19 @@
             </nav> 
         </container>
         <!--end header-->
+        <div class="card rounded">
+            <h1>Logged in as: {{ auth()->user()->name }}</h1>
+            <hr>
+            <h4>Email address: {{ auth()->user()->email }}</h4>
+            <h4>Threads published: {{ count(auth()->user()->threads) }}</h4>
+            <h4>Comments written: {{ count(auth()->user()->comments) }}</h4>
+        </div>
+        <style>
+            hr {
+                border: none;
+                height: 3px;
+                background: #8E6C88;
+            }
+        </style>
     </body>
 </div>
