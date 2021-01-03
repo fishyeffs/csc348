@@ -22,16 +22,39 @@ class ThreadController extends Controller
     public function store(Request $request) {
         $this->validate($request, [
             'title'=>'required|max:64',
-            'content'=>'required|max:512'
+            'content'=>'required|max:512',
+            'image'=> 'nullable|image|mimes:jpeg,png,jpg|max:4096'
         ]);
 
-        auth()->user()->threads()->create([
+        $thread = [
             'author'=>auth()->user()->name,
             'title'=>$request->title,
             'content'=>$request->content,
             'noOfComments'=>0,
-            'user_id'=>auth()->user()->id
-        ]);
+            'user_id'=>auth()->user()->id,
+        ];
+
+
+        if($request->hasFile('image')) {
+            $file=$request->file('image');
+            $fileExt=$file->getClientOriginalExtension();
+            $filename='http://forum.test/uploads/images/'.time().'.'.$fileExt; //concatenating time of upload with file extension
+            $file->move('uploads/images/', $filename);
+        }
+        else {
+            $filename='';
+        }
+
+        $thread = [
+            'author'=>auth()->user()->name,
+            'title'=>$request->title,
+            'content'=>$request->content,
+            'noOfComments'=>0,
+            'user_id'=>auth()->user()->id,
+            'img'=>$filename
+        ];
+
+        auth()->user()->threads()->create($thread);  
 
         return redirect()->route('home');
     }

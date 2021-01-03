@@ -55,7 +55,7 @@
     </container>
         <!--end header-->
     <div class="flex justify-center">
-        <form method="post" action="{{ route('create') }}">
+        <form method="post" action="{{ route('create') }}" enctype="multipart/form-data">
             <div class="card">
                 @csrf
                 <h5>Title</h5>
@@ -63,6 +63,9 @@
                 <h5>Body</h5>
                 <textarea type="text" id="content" name="content" placeholder="Write something..." 
                     class="w-full border-2 rounded-lg p-3" value="{{ old('content') }}"></textarea>
+                <div class="input-group">
+                    <input type="file" id="image" name="image">
+                </div>
             </div>
 
             <div class="card">
@@ -71,6 +74,9 @@
                     <div class="error-txt"> {{ $message }}</div>
                 @enderror
                 @error('content')
+                    <div class="error-txt"> {{ $message }}</div>
+                @enderror
+                @error('image')
                     <div class="error-txt"> {{ $message }}</div>
                 @enderror
             </div>

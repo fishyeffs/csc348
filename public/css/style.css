@@ -134,3 +134,7 @@ nav a:hover::before {
     height: 100%;
     width: 100%;
 }
+
+.input-group {
+    margin-top: 10px;
+}

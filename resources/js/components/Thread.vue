@@ -2,7 +2,10 @@
     <div>
         <div class="card thread-container" v-bind:key="thread.id">
             <h3 class="thread-txt">{{ thread.title }}</h3>
-            <p class="thread-txt">{{ thread.content }}</p>
+            <div id="holder">
+                <img :src="thread.img" id="thread-img">
+                <p class="thread-txt">{{ thread.content }}</p>
+            </div>
             <h5 class="thread-txt inline">Posted by {{ thread.author }}</h5>
         </div>
     </div>
@@ -18,7 +21,8 @@
                     content: '',
                     author: '',
                     noOfComments: '',
-                    user_id: ''
+                    user_id: '',
+                    img: ''
                 },
                 edit: false            
             }
@@ -44,6 +48,14 @@
 </script>
 
 <style scoped>
+    #holder img {
+        max-width: 50%;
+        height: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 2%;
+    }
     .thread-txt {
         color: #181D20;
         text-decoration: none;
