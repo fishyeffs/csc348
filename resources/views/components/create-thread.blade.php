@@ -14,7 +14,7 @@
 
 <div class = "content">
     <head>
-        <title>Home</title>
+        <title>Create</title>
     </head>
     <!--header-->
     <container class="header-container">

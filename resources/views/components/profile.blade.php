@@ -11,7 +11,7 @@
 
 <div class = "content">
     <head>
-        <title>Home</title>
+        <title>Profile</title>
     </head>
     <body>
         <!--header-->
