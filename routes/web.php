@@ -33,6 +33,14 @@ Route::get('thread/{id}', function () {
     return view('components.thread');
 });
 
+Route::get('thread/{id}/edit', [ThreadController::class, 'edit'])
+    ->name('edit')
+    ->middleware('auth');
+
+Route::put('thread/{id}/update', [ThreadController::class, 'update'])
+    ->name('update')
+    ->middleware('auth');
+
 Route::get('login', [LoginController::class, 'index'])
     ->name('login')
     ->middleware('guest');

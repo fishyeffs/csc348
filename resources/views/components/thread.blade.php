@@ -55,10 +55,16 @@
     <body>
         <div id="app">
             <single-thread></single-thread>
+            <div class="card">
+                <form action="{{ route('edit', substr(url()->full(), 25)) }}">
+                    <button  type="submit" class="btn-style rounded signup font-medium">edit</button>
+                </form>
+            </div>
+            <hr>
             <comments></comments>
         </div>
         <script src="{{ asset('js/app.js') }}"></script>
-    
+        <hr>
         <div class="flex justify-center">
             <form method="post" action="{{ route('store-comment') }}">
                 <div class="card">

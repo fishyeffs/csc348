@@ -14,6 +14,29 @@ class ThreadController extends Controller
         return ThreadResource::collection($threads);
     }
 
+    public function update(Request $request, $id) {
+        $this->validate($request, [
+            'title'=>'required|max:64',
+            'content'=>'required|max:512',
+        ]);
+
+        $thread = Thread::find($id);
+        $thread->title=$request->title;
+        $thread->content=$request->content;
+        $thread->save();
+
+        return redirect()->route('home');
+    }
+
+    public function delete($id) {
+
+    }
+
+    public function edit($id) {
+        $thread=Thread::find($id);
+        return view('components.edit')->with('thread', $thread);
+    }
+
     public function displayThread($id) {
         $thread=Thread::find($id);
         return $thread;
