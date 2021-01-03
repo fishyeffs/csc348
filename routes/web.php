@@ -41,6 +41,10 @@ Route::put('thread/{id}/update', [ThreadController::class, 'update'])
     ->name('update')
     ->middleware('auth');
 
+Route::put('thread/delete/{$id}', [ThreadController::class, 'delete'])
+    ->name('delete')
+    ->middleware('auth');
+
 Route::get('login', [LoginController::class, 'index'])
     ->name('login')
     ->middleware('guest');

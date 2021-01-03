@@ -67,7 +67,13 @@
             </div>
 
             <div class="card">
-                <button  type="submit" class="btn-style rounded signup font-medium">Edit</button>
+                @if (auth()->user()->id == \App\Models\Thread::find(substr(url()->full(), 25,1))->user_id )
+                    <button  type="submit" class="btn-style rounded signup font-medium">Edit</button>
+                @else 
+                    <button  type="submit" class="btn-style rounded font-medium" disabled>Edit</button>
+                @endif
+
+                
                 @error('title')
                     <div class="error-txt"> {{ $message }}</div>
                 @enderror
