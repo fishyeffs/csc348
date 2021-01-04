@@ -28,10 +28,6 @@ class ThreadController extends Controller
         return redirect()->route('home');
     }
 
-    public function delete($id) {
-
-    }
-
     public function edit($id) {
         $thread=Thread::find($id);
         return view('components.edit')->with('thread', $thread);
